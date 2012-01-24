@@ -1,0 +1,25 @@
+{% if races %}
+    
+
+    <table class="team">
+        <tr>
+            <th>Gara</th>
+            <th>Tipo</th>
+            <th>Luogo</th>
+            <th>Data</th>
+        </tr>
+        {% for race in races %}
+        <tr class="{% cycle odd,even %}">
+            <td><a href="{% url race-details race.id %}">{{ race.name }}</a></td>
+            <td>{{race.racetype }}</td>
+            <td>{{race.location }}</td>
+            <td>{{ race.date|date:"d-M-Y" }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    
+{% else %}
+    <p>Non ci sono gare effettuate nel database.</p>
+{% endif %}
+

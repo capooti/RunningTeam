@@ -1,0 +1,13 @@
+{% extends "team/base.html" %}
+{% load i18n %}
+{% load team_tags %}
+
+{% block head_title %}{% trans "Future Races" %}{% endblock %}
+
+{% block content %}
+
+  <h2>{% trans "Races" %}</h2>
+ <h3>{% trans "Future Races" %}</h3>
+  {% future_races_list runner %}
+  
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "squadra/base.html" %}
+{% load i18n %}
+
+{% block head_title %}Iscrizione gara{% endblock %}
+
+{% block body %}
+
+  <h2>Modulo di iscrizione Gara: {{ gara.nome }}</h2>
+  Seleziona la casella se vuoi iscriverti, o deselezionala se vuoi rimuovere l'iscrizione.
+  <form action="{% url iscrizione_gara gara.id %}" method="POST">
+    {{ form.as_p }}
+  <input type="submit" value="Conferma" />
+  </form>
+
+  
+{% endblock %}

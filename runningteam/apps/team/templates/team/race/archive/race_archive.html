@@ -1,0 +1,44 @@
+{% extends "team/base.html" %}
+{% load i18n %}
+{% load team_tags %}
+{% load pagination_tags %}
+
+{% block head_title %}{% trans "Races archives" %}{% endblock %}
+
+{% block content %}
+
+
+<h2>{% trans "Races archives" %}</h2>
+
+<p>
+{% for date in date_list %}  
+    | <a href="{% url race-archive-year date|date:"Y"|lower %}">{{ date|date:"Y" }}</a>
+{% endfor %}
+</p>
+
+{% if latest %}
+    
+    {% autopaginate latest 10 %}
+    <table class="team">
+        <tr>
+            <th>{% trans "Race" %}</th>
+            <th>{% trans "Race Type" %}</th>
+            <th>{% trans "Location" %}</th>
+            <th>{% trans "Date" %}</th>
+        </tr>
+        {% for race in latest %}
+        <tr class="{% cycle odd,even %}">
+            <td><a href="{% url race-details race.id %}">{{ race.name }}</a></td>
+            <td>{{race.racetype }}</td>
+            <td>{{race.location }}</td>
+            <td>{{ race.date|date:"d-M-Y" }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% paginate %}
+    
+{% else %}
+    <p>{% trans "There are no races in the database." %}</p>
+{% endif %}
+
+{% endblock %}

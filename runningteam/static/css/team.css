@@ -1,0 +1,37 @@
+/* team */
+
+table {
+    width: 100%;
+}
+
+th {
+    text-align: left;
+}
+
+table.narrow {
+    width: 500px;
+}
+table.team td {
+    vertical-align: top;
+    padding: 5px;
+}
+table.team td h2 {
+    margin: 0;
+    padding: 0;
+}
+table.team td.vote {
+    width: 80px;
+    text-align: center;
+    vertical-align: middle;
+}
+.team .even {
+    background-color: #FAFAFA;
+}
+.team .odd {
+    background-color: #F3F3F3;
+}
+div.url {
+    color: #666;
+    font-size: 90%;
+    font-style: italic;
+}

@@ -1,0 +1,12 @@
+# ignore pyc files
+*.pyc
+# ignore settings.py files
+runningteam/settings.py
+# ignore database
+runningteam/running.sqlite
+# other things to ignore
+runningteam/data
+runningteam/media
+runningteam/static/img/tralerighe
+runningteam/static/tralerighe
+

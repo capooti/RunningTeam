@@ -1,0 +1,24 @@
+{% extends "team/base.html" %}
+{% load i18n %}
+{% load avatar_tags %}
+
+{% block head_title %}{% trans "Update your user profile" %}{% endblock %}
+
+{% block content %}
+
+  <h2>{% trans "Update your user profile" %}</h2>
+
+  {% if form.errors %}
+    <p>{% trans "There is some error in your data!" %}</p>
+  {% endif %}
+  
+  <form action="{% url runner-update %}" method="POST" enctype="multipart/form-data" >
+    {{ form.as_p }}
+  <input type="submit" value="{% trans "Confirm" %}" />
+  
+  <p>
+  <a href="{% url avatar_change %}">{% avatar user %}{% trans "Change your avatar" %}</a>
+  </p>
+  
+{% endblock %}
+

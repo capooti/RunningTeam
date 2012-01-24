@@ -1,0 +1,48 @@
+{% extends "team/base.html" %}
+{% load i18n %}
+{% load pagination_tags %}
+
+{% block head_title %}{% trans "Races archives" %}{% endblock %}
+
+{% block content %}
+
+<h2>{% trans "Races archives for" %} {{ year }}</h2>
+
+ 
+<a href="../{{ year|add:"-1" }}/">{{ year|add:"-1" }}</a> << >> 
+<a href="../{{ year|add:"1" }}/">{{ year|add:"1" }}</a>
+
+<p>
+    {% for date in date_list %}  
+        | <a href="{% url race-archive-month date|date:"Y"|lower date|date:"m"|lower %}">{{ date|date:"M" }}</a>
+    {% endfor %}
+</p>
+
+{% if object_list %}
+
+    {% autopaginate object_list 10 %}
+
+        <table class="team">
+            <tr>
+                <th>{% trans "Race" %}</th>
+                <th>{% trans "Race Type" %}</th>
+                <th>{% trans "Location" %}</th>
+                <th>{% trans "Date" %}</th>
+            </tr>
+            {% for race in object_list %}
+            <tr class="{% cycle odd,even %}">
+                <td><a href="{% url race-details race.id %}">{{ race.name }}</a></td>
+                <td>{{race.racetype }}</td>
+                <td>{{race.location }}</td>
+                <td>{{ race.date|date:"d-M-Y" }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    {% paginate %}
+
+{% else %}
+    <p>{% trans "There are no races in the database for this year." %}</p>
+{% endif %}
+
+{% endblock %}

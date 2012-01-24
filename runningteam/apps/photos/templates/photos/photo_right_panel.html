@@ -1,0 +1,41 @@
+{% load i18n %}
+{% load avatar_tags %}
+{% load tagging_tags %}
+{% load group_tags %}
+
+<div class="photo-right-profile clearfix">
+    <div class="photo-avatar">{% avatar photo.member.username 50 %}</div>
+    <div class="photo-profile-details">
+        <h2>{% trans "Foto di" %}</h2>
+        <a href="{% url runner-details photo.member.get_runner.id %}" title="{{ photo.member.username }}">{{ photo.member.username }}</a><br />
+        {{ photo.date_taken|date }}<br />
+        {% trans "Viewed" %} {{ photo.view_count }} {% trans "times" %}
+    </div>
+</div>
+
+<div class="photo-right-tools">
+    {% if photo.tags %}
+        <h2>Tags</h2>
+        <ul>
+            {% tags_for_object photo as tags %}
+            {% for tag in tags %}
+                <li><a href=".">{{ tag }}</a></li>
+            {% endfor %}
+        </ul>
+        
+    {% endif %}
+    
+    {% if is_me %}
+        <form action="{% groupurl photo_destroy group id=photo.id %}" method="POST">
+            <label>{% trans "Delete Photo" %}</label> <input type="image" src="{{ STATIC_URL }}img/silk/icons/delete.png" border="0" title="{% trans "Delete Photo" %}" />
+                        <input type="hidden" name="action" value="delete"/>
+        </form>
+        
+        <a href="{% groupurl photo_edit group id=photo.id %}">{% trans "Edit Photo" %}</a>
+        
+    {% endif %}
+    
+</div>
+
+<div class="photo-right-exif">
+</div>

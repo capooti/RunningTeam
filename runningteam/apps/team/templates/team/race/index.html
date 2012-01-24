@@ -1,0 +1,37 @@
+{% extends "squadra/base.html" %}
+{% load i18n %}
+{% load avatar_tags %}
+
+{% block head_title %}Le Gare{% endblock %}
+
+{% block body %}
+
+  <h2>Le gare effettuate</h2>
+
+  {% if gare_effettuate %}
+      <ul>
+      {% for gara in gare_effettuate %}
+          <li>
+          <a href={{ gara.id }}>{{ gara.nome }}</a> ({{ gara.luogo }}, {{ gara.data }})
+          </li>
+      {% endfor %}
+      </ul>
+  {% else %}
+      <p>Non ci sono gare effettuate nel database.</p>
+  {% endif %}
+  
+  <h2>Le gare future</h2>
+  
+  {% if gare_future %}
+      <ul>
+      {% for gara in gare_future %}
+          <li>
+          <a href={{ gara.id }}>{{ gara.nome }}</a> ({{ gara.luogo }}, {{ gara.data }})
+          </li>
+      {% endfor %}
+      </ul>
+  {% else %}
+      <p>Non ci sono gare future nel database.</p>
+  {% endif %}
+  
+{% endblock %}

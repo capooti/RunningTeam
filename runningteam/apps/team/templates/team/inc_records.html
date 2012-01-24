@@ -1,0 +1,29 @@
+{% load i18n %}
+{% load avatar_tags %}
+
+{% if records %}
+    <table class="team">
+        <tr>
+            {% ifequal display_runner True %}
+                <th></th>
+                <th>{% trans "Runner" %}</th>
+            {% endifequal %}
+            <th>{% trans "Race" %}</th>
+            <th>{% trans "Date" %}</th>
+            <th>{% trans "Time" %}</th>
+        </tr>
+        {% for racerunner in records %}
+        <tr class="{% cycle odd,even %}">
+            {% ifequal display_runner True %}
+                <td><div class="avatar">{% avatar racerunner.runner.user 30 %}</div></td>
+                <td width='20%'><a href="{% url runner-details racerunner.runner.id %}">{{ racerunner.runner.name }}</a></td>
+            {% endifequal %}
+            <td width='50%'><a href="{% url race-details racerunner.race.id %}">{{ racerunner.race.name }}</a></td>
+            <td width='10%'>{{ racerunner.race.date|date:"d-M-Y" }}</td>
+            <td width='10%'>{{ racerunner.time|time:"H:i:s" }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>{% trans "There are not races for this kind in database." %}</p>
+{% endif %}

@@ -1,0 +1,43 @@
+{% extends "team/base.html" %}
+
+{% load i18n %}
+{% load humanize %}
+{% load tagging_tags %}
+{% load comments_tag %}
+{% load photo_tags %}
+
+{% block head_title %}{% trans "Photo details" %}{% endblock %}
+
+{% block content %}
+
+    <div class="right_panel">
+        {% include "photos/photo_right_panel.html" %}
+    </div>
+    
+    <div class="left_panel">
+
+    <p>
+    {% trans "Photo details" %}
+    <a href="{% url race-details photo.pool_set.all.0.content_object.id %}">{{ photo.pool_set.all.0.content_object.name }} del {{ photo.pool_set.all.0.content_object.date|date:"d-M-Y" }}</a>
+    </p>
+    
+    {% if photo %}
+        <div class="gallery-photo">
+            <img src="{{ photo_url }}" alt="{{ photo.title }}"/>
+        </div>
+        <div class="photo-title">
+            <h2>{{ photo.title }}</h2>
+        </div>
+        <div class="photo-caption">
+            <p>{{ photo.caption }}</p>
+        </div>
+        
+        <h3>{% trans "Comments" %}</h3>
+        {% comments photo %}
+    {% else %}
+    <p>{% trans "No photos were found." %}</p>
+    {% endif %}
+    </div>
+    
+{% endblock %}
+

@@ -1,0 +1,84 @@
+{% extends "team/base.html" %}
+{% load i18n %}
+{% load avatar_tags %}
+{% load comments_tag %}
+{% load pagination_tags %}
+
+{% load team_tags %}
+
+{% block head_title %}{% trans "Runner details" %}{% endblock %}
+
+{% block content %}
+
+  <h2>{{ runner.name }}</h2>
+
+  <div class="avatar">{% avatar runner.user 100 %}</div>
+  
+  <ul>
+    <li>{% trans "Name" %}: {{ runner.name }}</li>
+    <li>{% trans "Nickname" %}: {{ runner.nickname }}</li> 
+    <li>{% trans "Gender" %}: {{ runner.gender }}</li>
+    <li>{% trans "Birthdate" %}: {{ runner.birthdate|date:"d-M-Y" }}</li>
+    {% if user.is_authenticated %}
+        <li>{% trans "Phone" %}: {{ runner.phone }} (*)</li>
+    {% endif %}
+  </ul>
+  
+  {% if user.is_authenticated %}
+      (*) {% trans "Those information are visible only to team members." %}
+  {% endif %}
+    
+  <h2>{% trans "Races" %}</h2>
+  
+  {% if racerunners %}
+  
+      {% autopaginate racerunners 10 %}
+      <table class="team">
+          <tr>
+              <th>{% trans "Race" %}</th>
+              <th>{% trans "Race Type" %}</th>
+              <th>{% trans "Ranking" %}</th>
+              <th>{% trans "Time" %}</th>
+          </tr>
+          {% for racerunner in racerunners %}
+          <tr class="{% cycle odd,even %}">
+	            <td><a href="{% url race-details racerunner.race.id %}">{{ racerunner.race.name }}</a></td>
+	            <td>{{ racerunner.race.racetype.name }}</td>
+	            {% if racerunner.is_completed %}
+	                <td>{{ racerunner.ranking }}</td>
+	                <td>{{ racerunner.time|time:"H:i:s" }}</td>
+	            {% else %}
+	                {% if racerunner.race.is_future %}
+	                    <td colspan="2">{% trans "Future race" %}</td>
+	                {% else %}
+	                    <td colspan="2">{% trans "Retired" %}</td>
+	                {% endif %}
+	            {% endif %}
+	      </tr>
+	      {% endfor %}
+      </table>
+      {% paginate %}
+  
+  {% else %}
+    <p>{% trans "This runner did not take part to any race." %}
+  {% endif %}
+  
+  <hr />
+
+  <h2>Record</h2>
+  
+  {% for race_maintype in race_maintypes %}
+      <h3>{{ race_maintype.name }}</h3>
+      {% best_results_runner runner race_maintype.name %}
+  {% endfor %}
+  
+  <hr />
+  
+  <h2>{% trans "Comments" %}</h2> 
+  {% comments runner %}
+  
+{% endblock %}
+
+
+
+

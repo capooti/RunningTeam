@@ -1,0 +1,115 @@
+{% extends "team/base.html" %}
+{% load i18n %}
+{% load avatar_tags %}
+{% load humanize %}
+{% load pagination_tags %}
+{% load tagging_tags %}
+{% load group_tags %}
+{% load comments_tag %}
+{% load threadedcommentstags %}
+
+{% block head_title %}{% trans "Races" %}{% endblock %}
+
+{% block content %}
+
+  <h2>{% trans "Race details for" %}: {{ race.name }}</h2>
+  
+  <ul>
+    <li>{% trans "Name" %}: {{ race.name }}</li>
+    <li>{% trans "Date" %}: {{ race.date }}</li>
+    <li>{% trans "Location" %}: {{ race.location }}</li>
+    <li>{% trans "Race Type" %}: {{ race.racetype }}</li>
+    <li><a href='{{ race.url }}'>{% trans "Go to web site" %}</a></li>
+  </ul>
+  
+  <b>{% trans "Description" %}</b>
+  <p>{{ race.description|safe }}</p>
+  
+    {% if race.is_future %}
+    
+        {% if user.is_authenticated and racerunner %}
+                {% trans "You have already subscribed for this race." %} (<a href='{% url race-subscribe race.id %}'>{% trans "Unsubscribe!" %}</a>)
+        {% endif %}
+        {% if user.is_authenticated and not racerunner %}
+                {% trans "You are not subscribed for this race." %} (<a href='{% url race-subscribe race.id %}'>{% trans "Subscribe!" %}</a>)
+        {% endif %}
+
+        {% if not user.is_authenticated %}
+            {% trans "Login to subsribe or to unsubscribe to a race." %}
+        {% endif %}
+      
+    {% endif %}
+  
+  {% if race.is_future %}
+    <h2>{% trans "Subscribed runners" %}</h2>  
+  {% else %}
+    <h2>{% trans "Runners ranking" %}</h2>
+  {% endif %}
+  
+  <table class="team">
+    <tr>
+      <th></th>
+      <th>{% trans "Runner" %}</th>
+      {% if race.is_future %}
+        
+      {% else %}
+        <th>{% trans "Ranking" %}</th>
+        <th>{% trans "Time" %}</th>
+      {% endif %}
+    </tr>
+    {% if racerunners %}
+	    {% for rr in racerunners %}
+	      <tr class="{% cycle odd,even %}">
+	        <td><div class="avatar">{% avatar rr.runner.user 40 %}</div></td>
+	        <td><a href='{% url runner-details rr.runner.id %}'>{{ rr.runner.name }}</a></td>
+
+	        {% if race.is_future %}
+        
+          {% else %}
+	          <td>{{ rr.ranking }}</td>
+	          <td>{{ rr.time }}</td>
+	        {% endif %}
+	      </tr>
+	    {% endfor %}
+    {% else %}
+      <tr><td>{% trans "There are not subscribed runners for this race." %}</td></tr>
+    {% endif %}
+  </table>
+  
+  {% if retires %}
+    <h2>{% trans "Retired Runners" %}</h2> 
+    <ul> 
+    {% for retire in retires %}
+      <li><a href='{% url runner-details retire.runner.id %}'>{{ retire.runner.name }}</a></li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+  
+  <h2>{% trans "Photos" %}</h2> 
+  
+  {% if user.is_authenticated %}
+  <p>
+   <a href='{% url race-photo-add race.id %}'>{% trans "Add a photo for this race" %}</a>
+  </p>
+  {% endif %}
+  
+    {% if pools %}
+        {% autopaginate pools %}
+        <div class="thumb-row clearfix">
+        {% for pool in pools %}
+        <div class="gallery-photo-thumb">
+                <a href="{% groupurl photo_details group id=pool.photo.id %}"><img src="{{ pool.photo.get_thumbnail_url }}" alt="{{ pool.photo.title }}"/></a><br />
+                <a href="{% groupurl photo_details group id=pool.photo.id %}#photocomments">{% get_comment_count for pool.photo as commentcount %} {{ commentcount }} {% trans "Comments" %}</a><br />
+                {% blocktrans with pool.photo.view_count as view_count %} {{ view_count }}{% endblocktrans %}{% trans " times viewed" %}
+        </div>
+        {% endfor %}
+        </div>
+        {% paginate %}
+    {% else %}
+        <p>{% trans "No photos were found." %}</p>
+    {% endif %}
+  
+  <h2>{% trans "Comments" %}</h2> 
+  {% comments race %}
+  
+{% endblock %}

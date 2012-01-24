@@ -1,0 +1,23 @@
+{% extends "team/base.html" %}
+
+{% load i18n %}
+{% load avatar_tags %}
+
+{% block content %}
+    <p>{% trans "Your current avatar" %}</p>
+    {% avatar user %}
+    {% if not avatars %}
+        <p>{% trans "You still do not have an avatar. Upload one!" %}</p>
+    {% else %}
+        <form method="POST" action="">
+            <ul>
+                {{ primary_avatar_form.as_ul }}
+            </ul>
+            <input type="submit" value="{% trans "Use selected image" %}" />
+        </form>
+    {% endif %}
+    <form enctype="multipart/form-data" method="POST" action="">
+        <input type="file" name="avatar" value="Avatar Image" />
+        <input type="submit" value="{% trans "Upload a new image" %}" />
+    </form>
+{% endblock %}

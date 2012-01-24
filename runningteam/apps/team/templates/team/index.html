@@ -1,0 +1,28 @@
+{% extends "team/base.html" %}
+{% load i18n %}
+{% load team_tags %}
+
+{% block head_title %}Home{% endblock %}
+
+{% block content %}
+  
+  <h2>{% trans "Races" %}</h2>
+  <h3>{% trans "Future Races" %}</h3>
+  {% future_races_list runner  %}
+
+  <h3>{% trans "Past Races" %}</h3>
+  {% races_list 5 %}
+  
+  <hr />
+  
+  <h2>{% trans "Record" %}</h2>
+  {% for race_maintype in race_maintypes %}
+      <h3>{{ race_maintype.name }}</h3>
+      <h4>{% trans "Men" %}</h4>
+      {% best_results race_maintype.name 'M' %}
+      <h4>{% trans "Women" %}</h4>
+      {% best_results race_maintype.name 'F' %}
+       <hr />
+  {% endfor %}
+
+{% endblock %}

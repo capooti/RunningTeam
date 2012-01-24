@@ -1,0 +1,34 @@
+{% extends "team/base.html" %}
+{% load i18n %}
+{% load pagination_tags %}
+
+{% block head_title %}{% trans "Races archives" %} {% endblock %}
+
+{% block content %}
+
+<h2>{% trans "Races archives for" %}  {{ month|date:"F" }} {{ month|date:"Y" }}</h2>
+
+<a href="{% url race-archive-year month|date:"Y"|lower %}">{{ month|date:"Y" }}</a> <<
+
+{% autopaginate object_list 10 %}
+
+    <table class="team">
+        <tr>
+            <th>{% trans "Race" %}</th>
+            <th>{% trans "Race Type" %}</th>
+            <th>{% trans "Location" %}</th>
+            <th>{% trans "Date" %}</th>
+        </tr>
+        {% for race in object_list %}
+        <tr class="{% cycle odd,even %}">
+            <td><a href="{% url race-details race.id %}">{{ race.name }}</a></td>
+            <td>{{race.racetype }}</td>
+            <td>{{race.location }}</td>
+            <td>{{ race.date|date:"d-M-Y" }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+{% paginate %}
+
+{% endblock %}

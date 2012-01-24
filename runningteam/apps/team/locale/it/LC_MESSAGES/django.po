@@ -1,0 +1,406 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-01-24 17:45+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: management.py:10
+msgid "New comment for race"
+msgstr "Nuovo commento per gara"
+
+#: management.py:10
+msgid "A new comment has been inserted for a race"
+msgstr "Un nuovo commento e' stato inserito per una gara"
+
+#: management.py:12
+msgid "New comment for photo"
+msgstr "Nuovo commento per foto"
+
+#: management.py:12
+msgid "A new comment has been inserted for a photo"
+msgstr "Un nuovo commento e' stato inserito per una foto"
+
+#: management.py:14
+msgid "New photo for race"
+msgstr "Nuova foto per gara"
+
+#: management.py:14
+msgid "A new photo has been uploaded for a race"
+msgstr "Una nuova foto e' stata caricata per una gara"
+
+#: models.py:22 models.py:40 models.py:53
+msgid "name"
+msgstr "nome"
+
+#: models.py:24
+msgid "gender"
+msgstr "sesso"
+
+#: models.py:25 models.py:99
+msgid "birth date"
+msgstr "data di nascita"
+
+#: models.py:26
+msgid "phone"
+msgstr "telefono"
+
+#: models.py:27
+msgid "email"
+msgstr "email"
+
+#: models.py:36
+msgid "runner"
+msgstr "Atleta"
+
+#: models.py:37
+msgid "runners"
+msgstr "Atleti"
+
+#: models.py:41
+msgid "is maintype"
+msgstr "tipo principale"
+
+#: models.py:48
+msgid "race type"
+msgstr "Tipo di gara"
+
+#: models.py:49
+msgid "race types"
+msgstr "Tipi di gara"
+
+#: models.py:55
+msgid "date"
+msgstr "data"
+
+#: models.py:56
+msgid "location"
+msgstr "localita"
+
+#: models.py:57
+msgid "description"
+msgstr "descrizione"
+
+#: models.py:82
+msgid "race"
+msgstr "Tipo di gara"
+
+#: models.py:83
+msgid "races"
+msgstr "Gare"
+
+#: models.py:88
+msgid "is completed"
+msgstr "completata"
+
+#: models.py:89
+msgid "ranking"
+msgstr "classifica"
+
+#: models.py:90
+msgid "time"
+msgstr "tempo"
+
+#: views.py:173
+#, python-format
+msgid "Successfully uploaded photo '%s'"
+msgstr "Foto caricata con successo '%s'"
+
+#: templates/team/base.html:27 templates/team/runner/index.html:6
+#: templates/team/runner/index.html:10
+msgid "Runners"
+msgstr "Atleti"
+
+#: templates/team/base.html:28
+msgid "Races Archives"
+msgstr "Archivio Gare"
+
+#: templates/team/base.html:29 templates/team/index.html:10
+#: templates/team/race/future_races.html:5
+#: templates/team/race/future_races.html:10
+msgid "Future Races"
+msgstr "Prossime Gare"
+
+#: templates/team/base.html:30 templates/team/race/details.html:88
+msgid "Photos"
+msgstr "Foto"
+
+#: templates/team/base.html:31
+msgid "Stats"
+msgstr "Statistiche"
+
+#: templates/team/base.html:32
+msgid "About"
+msgstr "Informazioni"
+
+#: templates/team/base.html:34
+msgid "Profile"
+msgstr "Profilo"
+
+#: templates/team/base.html:35
+msgid "Admin"
+msgstr "Admin"
+
+#: templates/team/base.html:36
+msgid "Logout"
+msgstr "Logout"
+
+#: templates/team/base.html:39
+msgid "Login"
+msgstr "Login"
+
+#: templates/team/inc_future_races.html:7 templates/team/inc_records.html:11
+#: templates/team/race/archive/race_archive.html:24
+#: templates/team/race/archive/race_archive_month.html:17
+#: templates/team/race/archive/race_archive_year.html:27
+#: templates/team/runner/details.html:38
+msgid "Race"
+msgstr "Gara"
+
+#: templates/team/inc_future_races.html:8 templates/team/race/details.html:21
+#: templates/team/race/archive/race_archive.html:25
+#: templates/team/race/archive/race_archive_month.html:18
+#: templates/team/race/archive/race_archive_year.html:28
+#: templates/team/runner/details.html:39
+msgid "Race Type"
+msgstr "Tipo di gara"
+
+#: templates/team/inc_future_races.html:9 templates/team/race/details.html:20
+#: templates/team/race/archive/race_archive.html:26
+#: templates/team/race/archive/race_archive_month.html:19
+#: templates/team/race/archive/race_archive_year.html:29
+msgid "Location"
+msgstr "Localita"
+
+#: templates/team/inc_future_races.html:10 templates/team/inc_records.html:12
+#: templates/team/race/details.html:19
+#: templates/team/race/archive/race_archive.html:27
+#: templates/team/race/archive/race_archive_month.html:20
+#: templates/team/race/archive/race_archive_year.html:30
+msgid "Date"
+msgstr "Data"
+
+#: templates/team/inc_future_races.html:12
+msgid "Subscription"
+msgstr "Iscrizione"
+
+#: templates/team/inc_future_races.html:25
+msgid "Remove subscription"
+msgstr "Rimuovi iscrizione"
+
+#: templates/team/inc_future_races.html:29
+msgid "Subscribe"
+msgstr "Iscriviti"
+
+#: templates/team/inc_records.html:9 templates/team/race/details.html:52
+msgid "Runner"
+msgstr "Atleta"
+
+#: templates/team/inc_records.html:13 templates/team/race/details.html:57
+#: templates/team/runner/details.html:41
+msgid "Time"
+msgstr "Tempo"
+
+#: templates/team/inc_records.html:28
+msgid "There are not races for this kind in database."
+msgstr "Non ci sono gare di questo tipo nel database."
+
+#: templates/team/index.html:9 templates/team/race/details.html:11
+#: templates/team/race/future_races.html:9
+#: templates/team/runner/details.html:31
+msgid "Races"
+msgstr "Gare"
+
+#: templates/team/index.html:13
+msgid "Past Races"
+msgstr "Corse Effettuate"
+
+#: templates/team/index.html:18
+msgid "Record"
+msgstr "Record"
+
+#: templates/team/index.html:21
+msgid "Men"
+msgstr "Uomini"
+
+#: templates/team/index.html:23
+msgid "Women"
+msgstr "Donne"
+
+#: templates/team/race/add_photo.html:6
+msgid "Latest Photos"
+msgstr "Ultime Foto"
+
+#: templates/team/race/add_photo.html:14
+msgid "Upload"
+msgstr "Upload"
+
+#: templates/team/race/details.html:15
+msgid "Race details for"
+msgstr "Dettagli gara"
+
+#: templates/team/race/details.html:18 templates/team/runner/details.html:18
+#: templates/team/runner/index.html:21
+msgid "Name"
+msgstr "Nome"
+
+#: templates/team/race/details.html:22
+msgid "Go to web site"
+msgstr "Vai al sito"
+
+#: templates/team/race/details.html:25
+msgid "Description"
+msgstr "Descrizione"
+
+#: templates/team/race/details.html:31
+msgid "You have already subscribed for this race."
+msgstr "Sei gia' iscritto per questa gara"
+
+#: templates/team/race/details.html:31
+msgid "Unsubscribe!"
+msgstr "Iscriviti"
+
+#: templates/team/race/details.html:34
+msgid "You are not subscribed for this race."
+msgstr "Non sei iscritto a questa gara"
+
+#: templates/team/race/details.html:34
+msgid "Subscribe!"
+msgstr "Iscriviti"
+
+#: templates/team/race/details.html:38
+msgid "Login to subsribe or to unsubscribe to a race."
+msgstr "Effettua il login per iscriverti o rimuovere l'iscrizione da una gara"
+
+#: templates/team/race/details.html:44
+msgid "Subscribed runners"
+msgstr "Iscriviti"
+
+#: templates/team/race/details.html:46
+msgid "Runners ranking"
+msgstr "Classifica"
+
+#: templates/team/race/details.html:56 templates/team/runner/details.html:40
+msgid "Ranking"
+msgstr "Classifica"
+
+#: templates/team/race/details.html:75
+msgid "There are not subscribed runners for this race."
+msgstr "Non ci sono atleti nel database."
+
+#: templates/team/race/details.html:80
+msgid "Retired Runners"
+msgstr "Atleti"
+
+#: templates/team/race/details.html:92
+msgid "Add a photo for this race"
+msgstr "Aggiungi una foto per questa gara"
+
+#: templates/team/race/details.html:102 templates/team/race/details.html:112
+#: templates/team/runner/details.html:77
+msgid "Comments"
+msgstr "Commenti"
+
+#: templates/team/race/details.html:103
+#, python-format
+msgid " %(view_count)s"
+msgstr ""
+
+#: templates/team/race/details.html:103
+msgid " times viewed"
+msgstr " volte vista"
+
+#: templates/team/race/details.html:109
+msgid "No photos were found."
+msgstr "Non sono state trovate foto."
+
+#: templates/team/race/archive/race_archive.html:6
+#: templates/team/race/archive/race_archive.html:11
+#: templates/team/race/archive/race_archive_month.html:5
+#: templates/team/race/archive/race_archive_year.html:5
+msgid "Races archives"
+msgstr "Archivio gare"
+
+#: templates/team/race/archive/race_archive.html:41
+msgid "There are no races in the database."
+msgstr "Non ci sono atleti nel database."
+
+#: templates/team/race/archive/race_archive_month.html:9
+#: templates/team/race/archive/race_archive_year.html:9
+msgid "Races archives for"
+msgstr "Archivio gare per"
+
+#: templates/team/race/archive/race_archive_year.html:45
+msgid "There are no races in the database for this year."
+msgstr "Non ci sono atleti nel database."
+
+#: templates/team/runner/details.html:9
+msgid "Runner details"
+msgstr "Dettagli atleta"
+
+#: templates/team/runner/details.html:19 templates/team/runner/index.html:22
+msgid "Nickname"
+msgstr "Soprannome"
+
+#: templates/team/runner/details.html:20
+msgid "Gender"
+msgstr "Sesso"
+
+#: templates/team/runner/details.html:21 templates/team/runner/index.html:23
+msgid "Birthdate"
+msgstr "Data di nascita"
+
+#: templates/team/runner/details.html:23 templates/team/runner/index.html:26
+msgid "Phone"
+msgstr "Telefono"
+
+#: templates/team/runner/details.html:28 templates/team/runner/index.html:13
+msgid "Those information are visible only to team members."
+msgstr "Queste informazioni sono visibili ai soli componenti della squadra."
+
+#: templates/team/runner/details.html:52
+msgid "Future race"
+msgstr "Gare future"
+
+#: templates/team/runner/details.html:54
+msgid "Retired"
+msgstr "Ritirato"
+
+#: templates/team/runner/details.html:63
+msgid "This runner did not take part to any race."
+msgstr "Questo atleta non ha partecipato a nessuna gara."
+
+#: templates/team/runner/index.html:44
+msgid "There are not runners in the database."
+msgstr "Non ci sono atleti nel database."
+
+#: templates/team/runner/update.html:5 templates/team/runner/update.html:9
+msgid "Update your user profile"
+msgstr "Modifica il tuo profilo utente"
+
+#: templates/team/runner/update.html:12
+msgid "There is some error in your data!"
+msgstr "C'e' qualche errore nei dati inseriti!"
+
+#: templates/team/runner/update.html:17
+msgid "Confirm"
+msgstr "Conferma"
+
+#: templates/team/runner/update.html:20
+msgid "Change your avatar"
+msgstr "Modifica il tuo avatar"
+
+#~ msgid "Home"
+#~ msgstr "Home"

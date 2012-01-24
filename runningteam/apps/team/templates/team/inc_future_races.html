@@ -1,0 +1,39 @@
+{% load i18n %}
+{% load static %}
+
+        {% if future_races %}
+          <table class="team">
+              <tr>
+                      <th>{% trans "Race" %}</th>
+                      <th>{% trans "Race Type" %}</th>
+                      <th>{% trans "Location" %}</th>
+                      <th>{% trans "Date" %}</th>
+                      {% if future_races.subscribable %}
+                      <th>{% trans "Subscription" %}</th>
+                      {% endif %}
+              </tr>
+              {% for race in future_races %}
+              <tr class="{% cycle odd,even %}">
+	                <td><a href="{% url race-details race.id %}">{{ race.name }}</a></td>
+	                <td>{{ race.racetype }}</a></td>
+	                <td>{{ race.location }}</a></td>
+	                <td>{{ race.date|date:"d-M-Y" }}</td>
+	                {% if future_races.subscribable %}
+	                    <td>
+	                    {% if race.subscribed %}
+	                        <a href="{% url race-subscribe race.id %}">
+	                        <img src='{% get_static_prefix %}img/bullet_green.png' title='{% trans "Remove subscription" %}' alt='{% trans "Remove subscription" %}' />
+	                        </a>
+                        {% else %} 
+                            <a href="{% url race-subscribe race.id %}">
+	                        <img src='{% get_static_prefix %}img/bullet_red.png' title='{% trans "Subscribe" %}' alt='{% trans "Subscribe" %}' />
+	                        </a>
+                        {% endif %}
+	                    </td>
+	                {% endif %}
+	          </tr>
+	          {% endfor %}
+          </table>
+        {% else %}
+            <p>Non ci sono gare future.</p>
+        {% endif %}
