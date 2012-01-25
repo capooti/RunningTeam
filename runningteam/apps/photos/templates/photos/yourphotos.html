@@ -1,4 +1,4 @@
-{% extends "squadra/base.html" %}
+{% extends "team/base.html" %}
 
 {% load i18n %}
 {% load humanize %}
@@ -21,7 +21,7 @@
             <a href="{% groupurl photo_details group id=photo.id %}"><img src="{{ photo.get_thumbnail_url }}" alt="{{ photo.title }}"/></a><br />
             from <a href="..">{{ photo.member.username }}</a><br />
             
-            <a href="{% url dettaglio_gara photo.pool_set.all.0.content_object.id %}">
+            <a href="{% url race-details photo.pool_set.all.0.content_object.id %}">
             {{ photo.pool_set.all.0.content_object.nome|truncatewords:1 }}</a><br/>
             
             <a href="{% groupurl photo_details group id=photo.id %}/#photocomments">{% get_comment_count for photo as commentcount %} {{ commentcount }} Comments</a><br />
