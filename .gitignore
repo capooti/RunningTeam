@@ -1,9 +1,13 @@
 # ignore pyc files
 *.pyc
+# ignore virtualenv
+runningteam_env
 # ignore settings.py files
 runningteam/settings.py
 # ignore database
 runningteam/running.sqlite
+# ignore custom templates
+runningteam/templates/team
 # other things to ignore
 runningteam/data
 runningteam/media
