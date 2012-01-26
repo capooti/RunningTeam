@@ -13,49 +13,59 @@ if "notification" in settings.INSTALLED_APPS:
 else:
     notification = None
 
-class Runner(models.Model):
+##########
+# Models #
+##########
 
-	GENDER_CHOICES = (
-		('M', 'Male'),
-		('F', 'Female'),
-	)
-	name = models.CharField(_('name'), max_length=255)
-	nickname = models.CharField(max_length=255, blank=True, null=True)
-	gender = models.CharField(_('gender'), max_length=1, choices=GENDER_CHOICES)
-	birthdate = models.DateField(_('birth date'), blank=True, null=True)
-	phone = models.CharField(_('phone'), max_length=10, blank=True, null=True)
-	email = models.EmailField(_('email'), blank=True, null=True)
-	# relationship
-	user = models.ForeignKey(User, unique=True, blank=True, null=True)
-	
-	def __unicode__(self):
-		return '%s' % (self.name)
-	
-	class Meta:
-		ordering = ['name']
-		verbose_name = _('runner')
-		verbose_name_plural = _('runners')
-		
+class Runner(models.Model):
+    """
+    Model for Runner.
+    """
+    GENDER_CHOICES = (
+        ('M', 'Male'),
+        ('F', 'Female'),
+    )
+    name = models.CharField(_('name'), max_length=255)
+    nickname = models.CharField(max_length=255, blank=True, null=True)
+    gender = models.CharField(_('gender'), max_length=1, choices=GENDER_CHOICES)
+    birthdate = models.DateField(_('birth date'), blank=True, null=True)
+    phone = models.CharField(_('phone'), max_length=10, blank=True, null=True)
+    email = models.EmailField(_('email'), blank=True, null=True)
+    user = models.ForeignKey(User, unique=True, blank=True, null=True)
+
+    def __unicode__(self):
+        return '%s' % (self.name)
+
+    class Meta:
+        ordering = ['name']
+        verbose_name = _('runner')
+        verbose_name_plural = _('runners')
+
 class RaceType(models.Model):
-	name = models.CharField(_('name'), max_length=255)
-	is_maintype = models.BooleanField(_('is maintype'))
-	
-	def __unicode__(self):
-		return '%s' % (self.name)
-	
-	class Meta:
-		ordering = ['name']
-		verbose_name = _('race type')
-		verbose_name_plural = _('race types')
+    """
+    Model for RaceType.
+    """
+    name = models.CharField(_('name'), max_length=255)
+    is_maintype = models.BooleanField(_('is maintype'))
+
+    def __unicode__(self):
+        return '%s' % (self.name)
+
+    class Meta:
+        ordering = ['name']
+        verbose_name = _('race type')
+        verbose_name_plural = _('race types')
 
 class Race(models.Model):
-    
+    """
+    Model for Race.
+    """
     name = models.CharField(_('name'), max_length=255)
     url = models.URLField(verify_exists=False, blank=True, null=True)
     date = models.DateField(_('date'), blank=True, null=True)
-    location = models.CharField(_('location'), max_length=255, blank=True, null=True)
+    location = models.CharField(_('location'), max_length=255, 
+        blank=True, null=True)
     description = models.TextField(_('description'), blank=True, null=True)
-    # relationship
     racetype = models.ForeignKey(RaceType)
 
     def __unicode__(self):
@@ -83,60 +93,84 @@ class Race(models.Model):
         verbose_name_plural = _('races')
 
 class RaceRunner(models.Model):
-	race = models.ForeignKey(Race)
-	runner = models.ForeignKey(Runner)
-	is_completed = models.BooleanField(_('is completed'), )
-	ranking = models.PositiveSmallIntegerField(_('ranking'), null=True, blank=True)
-	time = models.TimeField(_('time'), null=True, blank=True)
-		
-	def __unicode__(self):
-		return '%s' % (self.race.name + ' - ' + self.runner.name)
+    """
+    Model for RaceRunner.
+    """
+    race = models.ForeignKey(Race)
+    runner = models.ForeignKey(Runner)
+    is_completed = models.BooleanField(_('is completed'), )
+    ranking = models.PositiveSmallIntegerField(_('ranking'), null=True,
+        blank=True)
+    time = models.TimeField(_('time'), null=True, blank=True)
 
-# forms
+    def __unicode__(self):
+        return '%s' % (self.race.name + ' - ' + self.runner.name)
+
+##########
+# Forms  #
+##########
 
 # form informazioni atleta
 class RunnerForm(ModelForm):
-  birhtdate = forms.DateField(label=_('birth date'), widget=widgets.SelectDateWidget(years=range(1900,2010))) 
-  class Meta:
-    model = Runner
-    fields = ('name', 'nickname', 'gender', 'birhtdate', 'phone')
+    """
+    Form for a Runner.
+    """
+    birhtdate = forms.DateField(label=_('birth date'),
+        widget=widgets.SelectDateWidget(years=range(1900,2010))) 
+        
+    class Meta:
+        model = Runner
+        fields = ('name', 'nickname', 'gender', 'birhtdate', 'phone')
 
-# handle notification
 
-# utilities
+##########
+# Others #
+##########
+
 def get_racerunners_list(race):
+    """
+    Get a runners list for a given race.
+    """
     races = gara.garaatleta_set.all()
     users = []
     for race in races:
         utenti.append(race.runner.user)
     return users
 
-# new comments
 from threadedcomments.models import ThreadedComment
 def new_comment(sender, instance, **kwargs):
+    """
+    Manages a new comment.
+    """
     # race comment
     if isinstance(instance.content_object, Race):
         race = instance.content_object
         if notification:
             users = get_racerunners_list(race)
-            notification.send(users, "race_comment", {"user": instance.user, "race": race, "comment": instance})
+            notification.send(users, "race_comment", 
+                {"user": instance.user, "race": race, "comment": instance})
     # image comment
     if isinstance(instance.content_object, Image):
         pool = instance.content_object.pool_set.all()[0]
         race = pool.content_object
         if notification:
             users = get_racerunners_list(race)
-            notification.send(users, "photo_comment", {"user": instance.user, "race": race, 
+            notification.send(users, "photo_comment", 
+                {"user": instance.user, "race": race, 
                 "comment": instance, "photo": pool.photo})
 models.signals.post_save.connect(new_comment, sender=ThreadedComment)
 
-# new photos
 from photos.models import Pool, Image
 def new_photo(sender, instance, **kwargs):
+    """
+    Manages a new photo.
+    """
     race = instance.content_object
     if notification:
         users = get_racerunners_list(race)
-        notification.send(users, "photo_new", {"user": instance.photo.member, "photo": instance.photo, "race": race})
+        notification.send(users, "photo_new", 
+            {"user": instance.photo.member, "photo": instance.photo, 
+                "race": race})
 models.signals.post_save.connect(new_photo, sender=Pool)
 
 

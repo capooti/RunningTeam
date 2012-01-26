@@ -60,6 +60,7 @@ Credits
 
 RunningTeam uses extensively awesome Django packages developed by the Django 
 Community (looks in prerequisites).
+
 The internal groups, photos and threadedcomments_extra applications and some of
 the css files are derived, with very small modifications, from the Pinax Project
 (early versions of RunningTeam were running on the Pinax platform).

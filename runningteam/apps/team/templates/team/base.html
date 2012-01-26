@@ -3,7 +3,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-	  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -15,40 +15,40 @@
         <link rel="stylesheet" href="{{ STATIC_URL }}css/photos.css" />
         <link rel="stylesheet" href="{{ STATIC_URL }}css/team.css" />
     </head>
-    
+
     <body>
 
-    {% block header %}<a href="{% url home %}"><img src="{{ STATIC_URL }}img/tralerighe.png" alt="Tra le Righe"/></a>{% endblock %}
+        {% block header %}<a href="{% url home %}"><img src="{{ STATIC_URL }}img/tralerighe.png" alt="Tra le Righe"/></a>{% endblock %}
 
-    {% block menu %}
-    <div id="subnav"  class="clxearfix"><div class="clearfix">
-        <ul class='tabs'>
-            <li><a href="{% url home %}">Home</a></li>
-            <li><a href="{% url runners-list %}">{% trans "Runners" %}</a></li>
-            <li><a href="{% url race-archive %}">{% trans "Races Archives" %}</a></li>
-            <li><a href="{% url future-races %}">{% trans "Future Races" %}</a></li>
-            <li><a href="{% url photos %}">{% trans "Photos" %}</a></li>
-            <li><a href="{% url stats %}">{% trans "Stats" %}</a></li>
-            <li><a href="{% url about %}">{% trans "About" %}</a></li>
-            {% if user.is_authenticated %}
-                <li><a href="{% url runner-update %}">{% trans "Profile" %}</a></li>
-                <li><a href="{% url admin:index %}">{% trans "Admin" %}</a></li>
-                <li><a href="{% url logout %}">{% trans "Logout" %}</a></li>
-            {% endif %}
-            {% if not user.is_authenticated %}
-                <li><a href="{% url login %}">{% trans "Login" %}</a></li>
-            {% endif %}
-        </ul>
-    </div></div>
-    {% endblock %}
+        {% block menu %}
+        <div id="subnav"  class="clxearfix"><div class="clearfix">
+                <ul class='tabs'>
+                    <li><a href="{% url home %}">Home</a></li>
+                    <li><a href="{% url runners-list %}">{% trans "Runners" %}</a></li>
+                    <li><a href="{% url race-archive %}">{% trans "Races Archives" %}</a></li>
+                    <li><a href="{% url future-races %}">{% trans "Future Races" %}</a></li>
+                    <li><a href="{% url photos %}">{% trans "Photos" %}</a></li>
+                    <li><a href="{% url stats %}">{% trans "Stats" %}</a></li>
+                    <li><a href="{% url about %}">{% trans "About" %}</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url runner-update %}">{% trans "Profile" %}</a></li>
+                    <li><a href="{% url admin:index %}">{% trans "Admin" %}</a></li>
+                    <li><a href="{% url logout %}">{% trans "Logout" %}</a></li>
+                    {% endif %}
+                    {% if not user.is_authenticated %}
+                    <li><a href="{% url login %}">{% trans "Login" %}</a></li>
+                    {% endif %}
+                </ul>
+        </div></div>
+        {% endblock %}
 
-    {% block content %}
-    
-    {% endblock %}
-    
-    <div id="footer">
-        © 2008-2012 by <a href="http://www.paolocorti.net">Capooti</a>, powered by <a href="https://github.com/capooti/RunningTeam">RunningTeam</a>.
-    </div>
+        {% block content %}
+
+        {% endblock %}
+
+        <div id="footer">
+            © 2008-2012 by <a href="http://www.paolocorti.net">Capooti</a>, powered by <a href="https://github.com/capooti/RunningTeam">RunningTeam</a>.
+        </div>
 
     </body>
 

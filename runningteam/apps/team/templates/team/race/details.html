@@ -67,7 +67,7 @@
         
           {% else %}
 	          <td>{{ rr.ranking }}</td>
-	          <td>{{ rr.time }}</td>
+	          <td>{{ rr.time|time:"H:i:s" }}</td>
 	        {% endif %}
 	      </tr>
 	    {% endfor %}
