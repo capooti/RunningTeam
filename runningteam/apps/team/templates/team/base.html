@@ -18,7 +18,7 @@
 
     <body>
 
-        {% block header %}<a href="{% url home %}"><img src="{{ STATIC_URL }}img/tralerighe.png" alt="Tra le Righe"/></a>{% endblock %}
+        {% block header %}<h1><a href="{% url home %}">RunningTeam</a></h1>{% endblock %}
 
         {% block menu %}
         <div id="subnav"  class="clxearfix"><div class="clearfix">
@@ -28,8 +28,6 @@
                     <li><a href="{% url race-archive %}">{% trans "Races Archives" %}</a></li>
                     <li><a href="{% url future-races %}">{% trans "Future Races" %}</a></li>
                     <li><a href="{% url photos %}">{% trans "Photos" %}</a></li>
-                    <li><a href="{% url stats %}">{% trans "Stats" %}</a></li>
-                    <li><a href="{% url about %}">{% trans "About" %}</a></li>
                     {% if user.is_authenticated %}
                     <li><a href="{% url runner-update %}">{% trans "Profile" %}</a></li>
                     <li><a href="{% url admin:index %}">{% trans "Admin" %}</a></li>
