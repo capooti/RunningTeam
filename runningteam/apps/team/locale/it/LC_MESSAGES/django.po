@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-24 17:45+0100\n"
+"POT-Creation-Date: 2012-02-01 11:02+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,103 +17,103 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
-#: management.py:10
+#: management.py:12
 msgid "New comment for race"
 msgstr "Nuovo commento per gara"
 
-#: management.py:10
+#: management.py:13
 msgid "A new comment has been inserted for a race"
 msgstr "Un nuovo commento e' stato inserito per una gara"
 
-#: management.py:12
+#: management.py:16
 msgid "New comment for photo"
 msgstr "Nuovo commento per foto"
 
-#: management.py:12
+#: management.py:17
 msgid "A new comment has been inserted for a photo"
 msgstr "Un nuovo commento e' stato inserito per una foto"
 
-#: management.py:14
+#: management.py:20
 msgid "New photo for race"
 msgstr "Nuova foto per gara"
 
-#: management.py:14
+#: management.py:21
 msgid "A new photo has been uploaded for a race"
 msgstr "Una nuova foto e' stata caricata per una gara"
 
-#: models.py:22 models.py:40 models.py:53
+#: models.py:28 models.py:48 models.py:63
 msgid "name"
 msgstr "nome"
 
-#: models.py:24
+#: models.py:30
 msgid "gender"
 msgstr "sesso"
 
-#: models.py:25 models.py:99
+#: models.py:31 models.py:118
 msgid "birth date"
 msgstr "data di nascita"
 
-#: models.py:26
+#: models.py:32
 msgid "phone"
 msgstr "telefono"
 
-#: models.py:27
+#: models.py:33
 msgid "email"
 msgstr "email"
 
-#: models.py:36
+#: models.py:41
 msgid "runner"
 msgstr "Atleta"
 
-#: models.py:37
+#: models.py:42
 msgid "runners"
 msgstr "Atleti"
 
-#: models.py:41
+#: models.py:49
 msgid "is maintype"
 msgstr "tipo principale"
 
-#: models.py:48
+#: models.py:56
 msgid "race type"
 msgstr "Tipo di gara"
 
-#: models.py:49
+#: models.py:57
 msgid "race types"
 msgstr "Tipi di gara"
 
-#: models.py:55
+#: models.py:65
 msgid "date"
 msgstr "data"
 
-#: models.py:56
+#: models.py:66
 msgid "location"
 msgstr "localita"
 
-#: models.py:57
+#: models.py:68
 msgid "description"
 msgstr "descrizione"
 
-#: models.py:82
+#: models.py:92
 msgid "race"
 msgstr "Tipo di gara"
 
-#: models.py:83
+#: models.py:93
 msgid "races"
 msgstr "Gare"
 
-#: models.py:88
+#: models.py:101
 msgid "is completed"
 msgstr "completata"
 
-#: models.py:89
+#: models.py:102
 msgid "ranking"
 msgstr "classifica"
 
-#: models.py:90
+#: models.py:104
 msgid "time"
 msgstr "tempo"
 
-#: views.py:173
+#: views.py:205
 #, python-format
 msgid "Successfully uploaded photo '%s'"
 msgstr "Foto caricata con successo '%s'"
@@ -137,27 +137,19 @@ msgstr "Prossime Gare"
 msgid "Photos"
 msgstr "Foto"
 
-#: templates/team/base.html:31
-msgid "Stats"
-msgstr "Statistiche"
-
-#: templates/team/base.html:32
-msgid "About"
-msgstr "Informazioni"
-
-#: templates/team/base.html:34
+#: templates/team/base.html:37
 msgid "Profile"
 msgstr "Profilo"
 
-#: templates/team/base.html:35
+#: templates/team/base.html:38
 msgid "Admin"
 msgstr "Admin"
 
-#: templates/team/base.html:36
+#: templates/team/base.html:39
 msgid "Logout"
 msgstr "Logout"
 
-#: templates/team/base.html:39
+#: templates/team/base.html:42
 msgid "Login"
 msgstr "Login"
 
@@ -238,6 +230,41 @@ msgstr "Uomini"
 #: templates/team/index.html:23
 msgid "Women"
 msgstr "Donne"
+
+#: templates/team/auth/login.html:10
+msgid "Your username and/or your password are wrong, please retry."
+msgstr "Il tuo username e/o la tua password non sono corretti, ritenta."
+
+#: templates/team/auth/logout.html:9
+msgid "Thanks, hope to see you back."
+msgstr "Grazie e a presto."
+
+#: templates/team/auth/logout.html:10
+msgid "To login again click"
+msgstr "Per effettuare il login clicca qui"
+
+#: templates/team/auth/logout.html:10
+msgid "here"
+msgstr "qui"
+
+#: templates/team/auth/password_change.html:4
+#: templates/team/auth/password_change.html:8
+msgid "Password Change"
+msgstr "Cambio password"
+
+#: templates/team/auth/password_change.html:12
+#: templates/team/runner/update.html:21
+msgid "Confirm"
+msgstr "Conferma"
+
+#: templates/team/auth/password_change_done.html:4
+#: templates/team/auth/password_change_done.html:8
+msgid "Password Change Done"
+msgstr "Cambio password effettuato"
+
+#: templates/team/auth/password_change_done.html:10
+msgid "You have successfully changed your password!"
+msgstr "Hai cambiato la password con successo!"
 
 #: templates/team/race/add_photo.html:6
 msgid "Latest Photos"
@@ -391,16 +418,22 @@ msgid "Update your user profile"
 msgstr "Modifica il tuo profilo utente"
 
 #: templates/team/runner/update.html:12
+msgid "Change your password here"
+msgstr "Cambia qui la tua password"
+
+#: templates/team/runner/update.html:16
 msgid "There is some error in your data!"
 msgstr "C'e' qualche errore nei dati inseriti!"
 
-#: templates/team/runner/update.html:17
-msgid "Confirm"
-msgstr "Conferma"
-
-#: templates/team/runner/update.html:20
+#: templates/team/runner/update.html:24
 msgid "Change your avatar"
 msgstr "Modifica il tuo avatar"
+
+#~ msgid "Stats"
+#~ msgstr "Statistiche"
+
+#~ msgid "About"
+#~ msgstr "Informazioni"
 
 #~ msgid "Home"
 #~ msgstr "Home"

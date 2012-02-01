@@ -1,12 +1,12 @@
 {% extends "team/base.html" %}
 
-{% block head_title %}Informazioni sulla squadra{% endblock %}
+{% block head_title %}Logout{% endblock %}
 
 {% block content %}
 
 <h2>Logout</h2>
 
-<p>Grazie per essere stato con noi.</p>
-<p>Se vuoi effettuare di nuovo il login clicca <a href="{% url login %}">qui</a>.</p>
+<p>{% trans "Thanks, hope to see you back." %}</p>
+<p>{% trans "To login again click" %} <a href="{% url login %}">{% trans "here" %}</a>.</p>
 
 {% endblock %}

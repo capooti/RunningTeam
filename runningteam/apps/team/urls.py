@@ -27,9 +27,12 @@ urlpatterns = patterns('',
         {'template_name': 'team/auth/login.html'}, name="login"),
     url(r'^logout/$', 'django.contrib.auth.views.logout', 
         {'template_name': 'team/auth/logout.html'}, name="logout"),
-    url(r'^login/$', 'django.contrib.auth.views.password_change', 
+    url(r'^password_change/$', 'django.contrib.auth.views.password_change', 
         {'template_name': 'team/auth/password_change.html'}, 
         name="password-change"),
+    url(r'^password_done/$', 'django.contrib.auth.views.password_change_done', 
+        {'template_name': 'team/auth/password_change_done.html'}, 
+        name="password-change-done"),
 )
 
 gare_dict = {

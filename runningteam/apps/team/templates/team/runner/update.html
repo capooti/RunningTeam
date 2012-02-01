@@ -8,6 +8,10 @@
 
   <h2>{% trans "Update your user profile" %}</h2>
 
+  <p>
+      <a href="{% url password-change %}">{% trans "Change your password here" %}</a>
+  </p>
+  
   {% if form.errors %}
     <p>{% trans "There is some error in your data!" %}</p>
   {% endif %}
