@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-01 11:02+0100\n"
+"POT-Creation-Date: 2013-11-16 00:37+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,7 +41,7 @@ msgstr "Nuova foto per gara"
 msgid "A new photo has been uploaded for a race"
 msgstr "Una nuova foto e' stata caricata per una gara"
 
-#: models.py:28 models.py:48 models.py:63
+#: models.py:28 models.py:50 models.py:65
 msgid "name"
 msgstr "nome"
 
@@ -49,7 +49,7 @@ msgstr "nome"
 msgid "gender"
 msgstr "sesso"
 
-#: models.py:31 models.py:118
+#: models.py:31 models.py:120
 msgid "birth date"
 msgstr "data di nascita"
 
@@ -61,59 +61,63 @@ msgstr "telefono"
 msgid "email"
 msgstr "email"
 
-#: models.py:41
+#: models.py:34
+msgid "certificate"
+msgstr "Certificato medico"
+
+#: models.py:43
 msgid "runner"
 msgstr "Atleta"
 
-#: models.py:42
+#: models.py:44
 msgid "runners"
 msgstr "Atleti"
 
-#: models.py:49
+#: models.py:51
 msgid "is maintype"
 msgstr "tipo principale"
 
-#: models.py:56
+#: models.py:58
 msgid "race type"
 msgstr "Tipo di gara"
 
-#: models.py:57
+#: models.py:59
 msgid "race types"
 msgstr "Tipi di gara"
 
-#: models.py:65
+#: models.py:67
 msgid "date"
 msgstr "data"
 
-#: models.py:66
+#: models.py:68
 msgid "location"
 msgstr "localita"
 
-#: models.py:68
+#: models.py:70
 msgid "description"
 msgstr "descrizione"
 
-#: models.py:92
+#: models.py:94
 msgid "race"
 msgstr "Tipo di gara"
 
-#: models.py:93
+#: models.py:95
 msgid "races"
 msgstr "Gare"
 
-#: models.py:101
+#: models.py:103
 msgid "is completed"
 msgstr "completata"
 
-#: models.py:102
+#: models.py:104
 msgid "ranking"
 msgstr "classifica"
 
-#: models.py:104
+#: models.py:106
 msgid "time"
 msgstr "tempo"
 
-#: views.py:205
+#: views.py:206
 #, python-format
 msgid "Successfully uploaded photo '%s'"
 msgstr "Foto caricata con successo '%s'"

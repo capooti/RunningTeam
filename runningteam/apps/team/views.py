@@ -155,7 +155,8 @@ def race_subscribe(request, race_id):
         racerunner = RaceRunner(race=race,runner=runner)
         racerunner.save()
     return HttpResponseRedirect('/')
-  
+
+@login_required
 def runner_update(request):
     """
     Runner update page.

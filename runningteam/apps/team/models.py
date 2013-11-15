@@ -31,6 +31,8 @@ class Runner(models.Model):
     birthdate = models.DateField(_('birth date'), blank=True, null=True)
     phone = models.CharField(_('phone'), max_length=10, blank=True, null=True)
     email = models.EmailField(_('email'), blank=True, null=True)
+    certificate = models.FileField(_('certificate'), upload_to='certificates',
+        blank=True, null=True)
     user = models.ForeignKey(User, unique=True, blank=True, null=True)
 
     def __unicode__(self):
@@ -120,7 +122,8 @@ class RunnerForm(ModelForm):
         
     class Meta:
         model = Runner
-        fields = ('name', 'nickname', 'gender', 'birhtdate', 'phone')
+        fields = ('name', 'nickname', 'gender', 'birhtdate', 'phone', 
+            'certificate' )
 
 
 ##########
