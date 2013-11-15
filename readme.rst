@@ -28,13 +28,7 @@ and install the needed django packages::
     $ mkdir runningteam
     $ virtualenv runningteam_env
     $ source runningteam_env/bin/activate
-    $ pip install django
-    $ pip install django-threadedcomments
-    $ pip install django-photologue
-    $ pip install django-tagging
-    $ pip install django-avatar
-    $ pip install django-pagination
-    $ pip install django-uni-form
+    $ pip install -r requirements.txt
     
 Download the source code, create your settings.py file copying the 
 settings.py.tmpl, change it accordingly to your settings.
