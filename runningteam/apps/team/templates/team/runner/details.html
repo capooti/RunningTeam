@@ -37,6 +37,7 @@
           <tr>
               <th>{% trans "Race" %}</th>
               <th>{% trans "Race Type" %}</th>
+              <th>{% trans "Date" %}</th>
               <th>{% trans "Ranking" %}</th>
               <th>{% trans "Time" %}</th>
           </tr>
@@ -44,6 +45,7 @@
           <tr class="{% cycle odd,even %}">
 	            <td><a href="{% url race-details racerunner.race.id %}">{{ racerunner.race.name }}</a></td>
 	            <td>{{ racerunner.race.racetype.name }}</td>
+	            <td>{{ racerunner.race.date|date:"d-M-Y" }}</td>
 	            {% if racerunner.is_completed %}
 	                <td>{{ racerunner.ranking }}</td>
 	                <td>{{ racerunner.time|time:"H:i:s" }}</td>

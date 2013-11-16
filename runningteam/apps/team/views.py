@@ -166,9 +166,10 @@ def runner_update(request):
     if request.method == 'POST':
         form = RunnerForm(request.POST, request.FILES, instance=runner)
         if form.is_valid():
-          form.save()
+            form.save()
         else:
-          print 'errors to save'
+            print 'errors to save'
+        form = RunnerForm(instance=runner)
     else:
          form = RunnerForm(instance=runner)
     return render_to_response(

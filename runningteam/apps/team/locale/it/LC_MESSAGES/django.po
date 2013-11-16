@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-16 00:37+0100\n"
+"POT-Creation-Date: 2013-11-16 08:24-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -63,7 +63,7 @@ msgstr "email"
 
 #: models.py:34
 msgid "certificate"
-msgstr "Certificato medico"
+msgstr "certificato"
 
 #: models.py:43
 msgid "runner"
@@ -117,7 +117,7 @@ msgstr "classifica"
 msgid "time"
 msgstr "tempo"
 
-#: views.py:206
+#: views.py:207
 #, python-format
 msgid "Successfully uploaded photo '%s'"
 msgstr "Foto caricata con successo '%s'"
@@ -389,11 +389,11 @@ msgstr "Soprannome"
 msgid "Gender"
 msgstr "Sesso"
 
-#: templates/team/runner/details.html:21 templates/team/runner/index.html:23
+#: templates/team/runner/details.html:21 templates/team/runner/index.html:24
 msgid "Birthdate"
 msgstr "Data di nascita"
 
-#: templates/team/runner/details.html:23 templates/team/runner/index.html:26
+#: templates/team/runner/details.html:23 templates/team/runner/index.html:27
 msgid "Phone"
 msgstr "Telefono"
 
@@ -413,7 +413,11 @@ msgstr "Ritirato"
 msgid "This runner did not take part to any race."
 msgstr "Questo atleta non ha partecipato a nessuna gara."
 
-#: templates/team/runner/index.html:44
+#: templates/team/runner/index.html:23
+msgid "Total Races"
+msgstr "Corse Effettuate"
+
+#: templates/team/runner/index.html:46
 msgid "There are not runners in the database."
 msgstr "Non ci sono atleti nel database."
 
